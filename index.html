@@ -3,114 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WSACP – Secure Your Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <title>WSACP – Website Security Audit Certificate Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --primary: #002244;
+      --accent: #FFD700;
+      --light: #f9f9f9;
+      --dark: #1c1c1c;
     }
 
     body {
-      background: linear-gradient(135deg, #000428, #004e92);
-      color: white;
-      padding: 2rem;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
     }
 
     header {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 1.5rem;
       text-align: center;
-      padding-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     header h1 {
       font-size: 2.5rem;
-      color: #ffd700;
+      margin-bottom: 0.5rem;
     }
 
     header p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #dcdcdc;
     }
 
-    .cta {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .cta a {
-      text-decoration: none;
-      background: #ffd700;
-      color: #000;
-      padding: 0.8rem 2rem;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .cta a:hover {
-      background: #fff200;
-    }
-
-    .flow {
-      margin-top: 4rem;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem 2rem;
+      background: white;
       border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    .flow h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #ffd700;
+    .scan-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .step {
-      margin-bottom: 1rem;
+    .scan-form input {
       padding: 1rem;
-      background: rgba(255, 255, 255, 0.08);
-      border-left: 4px solid #ffd700;
-      border-radius: 6px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .scan-form button {
+      background-color: var(--accent);
+      color: black;
+      padding: 0.9rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .scan-form button:hover {
+      background-color: #e6c200;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    ol {
+      padding-left: 1.2rem;
+      line-height: 1.7rem;
     }
 
     footer {
-      margin-top: 4rem;
       text-align: center;
+      padding: 2rem 1rem;
+      background-color: #f0f0f0;
+      color: #333;
       font-size: 0.9rem;
-      color: #999;
     }
 
-    a {
-      color: #ffd700;
+    .tagline {
+      font-weight: bold;
+      color: var(--primary);
+      margin-top: 0.5rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>WSACP</h1>
+    <h1>🔐 WSACP</h1>
     <p>Website Security Auditing & Certificate Platform</p>
+    <p class="tagline">Built by Mercy Mbaka – AI x Cybersecurity x Real Estate</p>
   </header>
 
-  <div class="cta">
-    <a href="/login">Start Scan</a>
+  <div class="container">
+    <h2>Start Your Website Scan</h2>
+    <form class="scan-form" method="POST" action="/scan">
+      <input type="text" name="url" placeholder="Enter your domain (e.g., https://example.com)" required />
+      <button type="submit">🚀 Scan Now</button>
+    </form>
+
+    <h2>How It Works</h2>
+    <ol>
+      <li>User registers or logs in to their dashboard.</li>
+      <li>Enters the website/domain name they want to scan.</li>
+      <li>The system initiates a vulnerability scan using OWASP ZAP.</li>
+      <li>Scan results are stored, analyzed, and interpreted.</li>
+      <li>If the site passes: a digital certificate is generated.</li>
+      <li>If the site fails: user receives a vulnerability report with fix suggestions.</li>
+      <li>User can track scan history, download certificates or reports, and re-scan anytime.</li>
+    </ol>
   </div>
 
-  <section class="flow">
-    <h2>How It Works</h2>
-    <div class="step"><strong>1.</strong> User registers / logs in</div>
-    <div class="step"><strong>2.</strong> Enters a domain name to scan</div>
-    <div class="step"><strong>3.</strong> System runs security scan via OWASP ZAP</div>
-    <div class="step"><strong>4.</strong> Raw results are analyzed and stored</div>
-    <div class="step"><strong>5.</strong> If website passes → Generate certificate and allow download</div>
-    <div class="step"><strong>6.</strong> If website fails → Show results with suggestions to fix</div>
-    <div class="step"><strong>7.</strong> User can view scan history, download reports, and rescan site</div>
-  </section>
-
   <footer>
-    Built with  by <a href="https://github.com/Kat-Luna" target="_blank">Mercy Mbaka</a> • AI x Cybersecurity x Real Estate
+    &copy; 2025 WSACP – A Ceo Luna Project | Powered by AI-Powered Cloud Security<br>
+    Elevating Digital Trust Across Africa and Beyond 🌍
   </footer>
 
 </body>
