@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luna Security - Website Scan</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #000;
+            color: #FFD700;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #FFD700;
+        }
+
+        .scan-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #FFD700;
+            background-color: #000;
+            color: #FFD700;
+            border-radius: 6px;
+        }
+
+        .btn-primary,
+        .btn-success,
+        .btn-warning {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .scan-results,
+        .scan-info {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            background-color: #111;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .result-card {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .result-card.secure {
+            border-left: 5px solid #28a745;
+        }
+
+        .result-card.insecure {
+            border-left: 5px solid #dc3545;
+        }
+
+        .result-card i {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        .security-grade {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .grade-circle {
+            background-color: #FFD700;
+            color: #000;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li i {
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: #111;
+            color: #FFD700;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .security-grade {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .grade-circle {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 style="text-align:center; margin-top: 30px;">Website Security Scan</h2>
+
+    <form method="POST" class="scan-form">
+        <div class="form-group">
+            <label for="url">Website URL</label>
+            <input type="url" id="url" name="url" placeholder="https://example.com" required />
+        </div>
+        <button type="submit" class="btn-primary">Scan Website</button>
+    </form>
+
+    <!-- Example of scan results (simulated) -->
+    <div class="scan-results">
+        <h3>Scan Results for example.com</h3>
+
+        <div class="result-card insecure">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h4>Website Security Status: <span class="insecure">Insecure</span></h4>
+            <p>We found security issues that need to be addressed.</p>
+
+            <div class="security-grade">
+                <div class="grade-circle">62</div>
+                <div class="grade-info">
+                    <p>Security Score: 62/100</p>
+                    <p>Grade: C</p>
+                </div>
+            </div>
+
+            <div class="vulnerabilities">
+                <h5>Identified Vulnerabilities:</h5>
+                <ul>
+                    <li>Outdated PHP version</li>
+                    <li>Missing Content Security Policy (CSP)</li>
+                    <li>Weak SSL Cipher Suites</li>
+                </ul>
+            </div>
+
+            <div class="recommendations">
+                <h5>Recommendations:</h5>
+                <ul>
+                    <li>Update all software components to their latest versions</li>
+                    <li>Implement proper security headers (CSP, X-Content-Type-Options, etc.)</li>
+                    <li>Regularly scan for vulnerabilities using Luna Security Platform</li>
+                    <li>Ensure SSL/TLS configuration follows security best practices</li>
+                </ul>
+            </div>
+
+            <button class="btn-warning" onclick="document.querySelector('.scan-form').scrollIntoView()">
+                <i class="fas fa-redo"></i> Rescan Website
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WSACP | Powered by <strong>Mercy Mbaka</strong> 💻</p>
+    </footer>
+
+</body>
+
+</html>

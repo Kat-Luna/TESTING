@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WSACP - Login</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #000;
+            color: #FFD700;
+        }
+
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: linear-gradient(to right, #000000, #1a1a1a);
+            padding: 30px;
+        }
+
+        .auth-card {
+            background-color: #111;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header i {
+            font-size: 40px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .auth-header h2 {
+            color: #FFD700;
+            margin: 0;
+        }
+
+        .auth-header p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .auth-form .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #FFD700;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 10px 35px 10px 10px;
+            border-radius: 6px;
+            border: 1px solid #FFD700;
+            background: #000;
+            color: #FFD700;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            color: #FFD700;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #FFD700;
+            color: black;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #e6c200;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .text-link {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        .auth-divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #777;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-social {
+            flex: 1;
+            margin: 0 5px;
+            background: #222;
+            color: #FFD700;
+            padding: 10px;
+            border: 1px solid #FFD700;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-social:hover {
+            background: #333;
+        }
+
+        .auth-image {
+            margin-left: 40px;
+        }
+
+        .security-animation .shield,
+        .security-animation .lock,
+        .security-animation .check {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            text-align: center;
+            margin: 10px 0;
+            color: #FFD700;
+            font-size: 32px;
+        }
+
+        footer {
+            background-color: #111;
+            color: #FFD700;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+            }
+
+            .auth-image {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Login to WSACP</h2>
+                <p>Secure your websites with our security auditing platform</p>
+            </div>
+
+            <form method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                    <i class="fas fa-lock input-icon"></i>
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword()"></i>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+
+                <div class="auth-footer">
+                    <a href="#" class="text-link">Forgot Password?</a>
+                    <p>
+                        Don't have an account?
+                        <a href="/register" class="text-link">Register Now</a>
+                    </p>
+                </div>
+            </form>
+
+            <div class="auth-divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn-social google">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button class="btn-social github">
+                    <i class="fab fa-github"></i> GitHub
+                </button>
+            </div>
+        </div>
+
+        <div class="auth-image">
+            <div class="security-animation">
+                <div class="shield"><i class="fas fa-shield-alt"></i></div>
+                <div class="lock"><i class="fas fa-lock"></i></div>
+                <div class="check"><i class="fas fa-check-circle"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WSACP | Powered by <strong>Mercy Mbaka</strong> 💻</p>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const shield = document.querySelector('.shield');
+            const lock = document.querySelector('.lock');
+            const check = document.querySelector('.check');
+
+            setTimeout(() => {
+                shield.style.transform = 'translateY(0)';
+                shield.style.opacity = '1';
+
+                setTimeout(() => {
+                    lock.style.transform = 'translateY(0)';
+                    lock.style.opacity = '1';
+
+                    setTimeout(() => {
+                        check.style.transform = 'translateY(0)';
+                        check.style.opacity = '1';
+                    }, 300);
+                }, 300);
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

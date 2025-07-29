@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scan History - WSACP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            /* Black background */
+            color: #FFD700;
+            /* Gold text */
+        }
+
+        h2 {
+            text-align: center;
+            color: #FFD700;
+            margin: 40px 0 20px;
+        }
+
+        .history-container {
+            max-width: 1000px;
+            margin: auto;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .history-header,
+        .history-item {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+            padding: 12px 20px;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .history-header {
+            background: #FFD700;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .history-item:nth-child(even) {
+            background: #1a1a1a;
+        }
+
+        .history-url,
+        .history-date,
+        .history-status,
+        .history-actions {
+            font-size: 14px;
+        }
+
+        .secure-badge {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .insecure-badge {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 10px;
+            font-size: 12px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 5px;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #e6c200;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-sm {
+            padding: 5px 8px;
+        }
+
+        .empty-state {
+            text-align: center;
+            margin-top: 100px;
+            color: #999;
+        }
+
+        .empty-state i {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .empty-state h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #FFD700;
+            color: black;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #FFD700;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        footer i {
+            color: #FFD700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🛡️ Website Scan History</h2>
+
+    <!-- HISTORY SECTION -->
+    <div class="history-container">
+        <div class="history-header">
+            <span>Website</span>
+            <span>Date</span>
+            <span>Status</span>
+            <span>Actions</span>
+        </div>
+
+        <div class="history-item">
+            <div class="history-url">https://example.com</div>
+            <div class="history-date">2025-07-27</div>
+            <div class="history-status">
+                <span class="secure-badge"><i class="fas fa-shield-alt"></i> Secure</span>
+            </div>
+            <div class="history-actions">
+                <a href="#" class="btn btn-sm"><i class="fas fa-redo"></i> Rescan</a>
+                <a href="#" class="btn btn-sm btn-success"><i class="fas fa-certificate"></i> Certificate</a>
+            </div>
+        </div>
+
+        <div class="history-item">
+            <div class="history-url">http://unsafe-site.com</div>
+            <div class="history-date">2025-07-26</div>
+            <div class="history-status">
+                <span class="insecure-badge"><i class="fas fa-exclamation-triangle"></i> Issues Found</span>
+            </div>
+            <div class="history-actions">
+                <a href="#" class="btn btn-sm"><i class="fas fa-redo"></i> Rescan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <!--
+    <div class="empty-state">
+        <i class="fas fa-history"></i>
+        <h3>No Scan History</h3>
+        <p>You haven't scanned any websites yet.</p>
+        <a href="#">Scan Your First Website</a>
+    </div>
+    -->
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 WSACP | Powered by <strong>Mercy Mbaka</strong> 💻
+    </footer>
+
+</body>
+
+</html>

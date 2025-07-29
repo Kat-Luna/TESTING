@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends "base.html" %}
+    {% block title %}Security Certificate{% endblock %}
+    {% block head %}
+    <style>
+        .certificate-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            background: #f9f9f9;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .certificate {
+            background: white;
+            border: 5px double #444;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-header h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .certificate-body {
+            margin: 20px 0;
+        }
+
+        .certificate-logo i {
+            font-size: 50px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .certificate-seal {
+            margin-top: 20px;
+        }
+
+        .seal i {
+            font-size: 40px;
+            color: green;
+        }
+
+        .certificate-footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .certificate-actions {
+            margin-top: 30px;
+        }
+
+        .certificate-actions a.btn {
+            margin: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .certificate-actions a.btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="certificate-container">
+        <h2>Website Security Certificate</h2>
+
+        <div class="certificate-preview">
+            <div class="certificate">
+                <div class="certificate-header">
+                    <h3>Website Security Certificate</h3>
+                </div>
+                <div class="certificate-body">
+                    <div class="certificate-logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <p>This certificate is awarded to</p>
+                    <h4>{{ session.name }}</h4>
+                    <p>for the website</p>
+                    <h4>{{ session.url }}</h4>
+                    <p>This site has successfully passed a comprehensive security audit conducted by Luna Security
+                        Platform.</p>
+
+                    <div class="certificate-seal">
+                        <div class="seal">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p>Security Verified</p>
+                    </div>
+
+                    <div class="certificate-details">
+                        <p>Issue Date: {{ now.strftime("%B %d, %Y") }}</p>
+                        <p>Certificate ID: LUNA-{{ now.strftime("%Y%m%d") }}-001</p>
+                    </div>
+                </div>
+                <div class="certificate-footer">
+                    <p>Luna Security Platform - Trusted Website Security Verification</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="certificate-actions">
+            <a href="{{ url_for('download_certificate', cert_path=cert_path) }}" class="btn">
+                <i class="fas fa-download"></i> Download Certificate
+            </a>
+            <a href="{{ url_for('dashboard') }}" class="btn">
+                <i class="fas fa-home"></i> Return to Dashboard
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
